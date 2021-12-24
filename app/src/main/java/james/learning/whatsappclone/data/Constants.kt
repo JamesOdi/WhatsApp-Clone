@@ -11,7 +11,12 @@ object Constants {
     const val CONVERSATIONS = "Conversations"
     const val IMAGE_URL = "imageUrl"
     const val ONLINE_STATUS = "online"
-    var friendsList = ArrayList<String>()
     const val STATUS = "Status"
-    var selectedImageVideo: ArrayList<ImageVideo> = ArrayList()
+    const val UPLOADS = "Uploads"
+    const val UPLOAD_URI = "uploadUri"
+    const val COMMENT = "comment"
+    const val IS_VIDEO = "isVideo"
+    const val MP4 = "mp4"
+    const val PNG = "png"
+    var selectedImageVideoUri: ArrayList<ImageVideo>? = null
 }

@@ -4,19 +4,17 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.google.firebase.Timestamp
 
-data class Status(var uploadsUri: List<Uploads>?=null, var uploaderId: String = "", var uploaderName: String="", var friends: List<String>? = null): Parcelable {
+data class Status(var uploadsUri: List<Uploads>?=null, var uploaderId: String = "", var uploaderName: String=""): Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.createTypedArrayList(Uploads),
         parcel.readString()!!,
         parcel.readString()!!,
-        parcel.createStringArrayList()
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeTypedList(uploadsUri)
         parcel.writeString(uploaderId)
         parcel.writeString(uploaderName)
-        parcel.writeStringList(friends)
     }
 
     override fun describeContents(): Int {
@@ -32,7 +30,6 @@ data class Status(var uploadsUri: List<Uploads>?=null, var uploaderId: String = 
         if (uploadsUri != other.uploadsUri) return false
         if (uploaderId != other.uploaderId) return false
         if (uploaderName != other.uploaderName) return false
-        if (friends != other.friends) return false
 
         return true
     }
@@ -41,7 +38,6 @@ data class Status(var uploadsUri: List<Uploads>?=null, var uploaderId: String = 
         var result = uploadsUri?.hashCode() ?: 0
         result = 31 * result + uploaderId.hashCode()
         result = 31 * result + uploaderName.hashCode()
-        result = 31 * result + (friends?.hashCode() ?: 0)
         return result
     }
 

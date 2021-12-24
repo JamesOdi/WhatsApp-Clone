@@ -8,8 +8,10 @@ import android.view.View.VISIBLE
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import james.learning.whatsappclone.data.Constants
 import james.learning.whatsappclone.data.Constants.STATUS
 import james.learning.whatsappclone.data.Status
+import james.learning.whatsappclone.data.StatusOwner
 import james.learning.whatsappclone.data.Uploads
 import james.learning.whatsappclone.databinding.ActivityTextStatusBinding
 
@@ -41,16 +43,17 @@ class TextStatusActivity : BaseActivity() {
 
         view.addUpload.setOnClickListener {
             val text = view.statusText.text.toString().trim()
-            statusLocation.set(Status(listOf(
-                Uploads(text, views = listOf(currentUserId), type = "text")),
-                uploaderId = currentUserId,
-                uploaderName = getCurrentUser()?.email!!,
-                friends = getConversationContacts()),
-                SetOptions.merge()).addOnCompleteListener {
-                onBackPressed()
-            }.addOnFailureListener {
-                Toast.makeText(this, "Please try again!", Toast.LENGTH_SHORT).show()
-                onBackPressed()
+            statusLocation.set(StatusOwner(getCurrentUserId(), getConversationContacts()), SetOptions.merge()).addOnCompleteListener {
+                statusLocation.collection(Constants.UPLOADS).document().set(Status(listOf(Uploads(text, views = listOf(currentUserId), type = "text")),
+                    uploaderId = currentUserId,
+                    uploaderName = getCurrentUser()?.email!!),
+                    SetOptions.merge()).addOnCompleteListener {
+                    onBackPressed()
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Please try again!", Toast.LENGTH_SHORT).show()
+                    onBackPressed()
+                }
+
             }
         }
     }

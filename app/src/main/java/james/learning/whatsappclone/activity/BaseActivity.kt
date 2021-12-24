@@ -91,7 +91,7 @@ open class BaseActivity : AppCompatActivity() {
         snackbar.show()
     }
 
-    private fun showProgressDialog() {
+    fun showProgressDialog() {
         dialog = Dialog(this)
         dialog.setCanceledOnTouchOutside(false)
         pleaseWaitView = PleaseWaitDialogBinding.inflate(layoutInflater)
@@ -99,7 +99,7 @@ open class BaseActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun closeDialog() {
+    fun closeDialog() {
         dialog.dismiss()
     }
 

@@ -2,6 +2,7 @@ package james.learning.whatsappclone.fragment
 
 import android.content.Intent
 import android.database.Cursor
+import android.media.MediaMetadataRetriever
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,8 +18,10 @@ import android.media.MediaPlayer
 import android.net.Uri
 
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.Toast
-import james.learning.whatsappclone.data.Constants.selectedImageVideo
+import james.learning.whatsappclone.activity.ImageVideoStatusActivity
+import james.learning.whatsappclone.data.Constants.selectedImageVideoUri
 import java.lang.Exception
 
 
@@ -31,9 +34,12 @@ class StatusFragment : Fragment() {
     ): View {
         view = FragmentStatusBinding.inflate(layoutInflater)
         val thisActivity = activity as MainActivity
+        selectedImageVideoUri = null
+
         view.addTextUpload.setOnClickListener {
             startActivity(Intent(thisActivity, TextStatusActivity::class.java))
         }
+
         val image_video_result = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){result ->
             val intentData = result.data
             if (intentData != null) {
@@ -43,35 +49,23 @@ class StatusFragment : Fragment() {
                     for (position in 0 until clipData.itemCount){
                         val data = clipData.getItemAt(position).uri
                         if (data.toString().contains("video")){
-                            val filePathColumn = arrayOf(MediaStore.Video.Media.DATA)
-                            val cursor: Cursor? = thisActivity.contentResolver.query(
-                                data,
-                                filePathColumn, null, null, null
-                            )
-                            if (cursor != null) {
-                                cursor.moveToFirst()
-                                val columnIndex: Int = cursor.getColumnIndex(filePathColumn[0])
-                                val filePath: String = cursor.getString(columnIndex)
-                                cursor.close()
-                                try {
-                                    val mp: MediaPlayer = MediaPlayer.create(thisActivity, Uri.parse(filePath))
-                                    val duration = mp.duration
-                                    mp.release()
-                                    if (duration / 1000 > 30) {
-                                        Toast.makeText(thisActivity, "Please select only videos that are 30 seconds long", Toast.LENGTH_SHORT).show()
-                                    } else {
-                                        selectedItems.add(ImageVideo(data, video = true))
-                                    }
-                                } catch (e: Exception) {
-                                    e.printStackTrace()
-                                }
+
+                            val mmdr = MediaMetadataRetriever()
+                            mmdr.setDataSource(thisActivity, data)
+                            val time = mmdr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
+                            val timeInMillis = time?.toLong()!!
+                            if (timeInMillis / 1000 > 30) {
+                                Toast.makeText(thisActivity, "Please select only videos that are 30 seconds long", Toast.LENGTH_SHORT).show()
+                            } else {
+                                selectedItems.add(ImageVideo(data, isVideo = true))
                             }
+                            mmdr.release()
                         } else {
-                            selectedItems.add(ImageVideo(data, video = false))
+                            selectedItems.add(ImageVideo(data, isVideo = false))
                         }
                     }
-                    selectedImageVideo = selectedItems
-                    start
+                    selectedImageVideoUri = selectedItems
+                    startActivity(Intent(thisActivity, ImageVideoStatusActivity::class.java))
                 }
             }
         }
