@@ -9,16 +9,18 @@
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/drawable/ic_camera.xml" value="0.21614583333333334" />
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/drawable/ic_person.xml" value="0.21614583333333334" />
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/drawable/return_bg.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/drawable/ring_drawable.xml" value="0.22" />
+        <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/drawable/ring_layer.xml" value="0.21614583333333334" />
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/drawable/round_bg.xml" value="0.21614583333333334" />
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/activity_base.xml" value="0.1213768115942029" />
-        <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/activity_chat_page.xml" value="0.33" />
-        <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/activity_contacts.xml" value="0.1" />
+        <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/activity_chat_page.xml" value="0.2" />
+        <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/activity_contacts.xml" value="0.25" />
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/activity_image_video_status.xml" value="0.11367753623188406" />
-        <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/activity_sign_up.xml" value="0.1082427536231884" />
-        <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/activity_text_status.xml" value="0.22" />
+        <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/activity_text_status.xml" value="0.16" />
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/chat_contact_view.xml" value="0.25" />
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/chat_view.xml" value="0.22" />
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/contacts.xml" value="0.25" />
@@ -27,7 +29,9 @@
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/fragment_status.xml" value="0.25" />
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/fragment_status_items.xml" value="0.11367753623188406" />
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/please_wait_dialog.xml" value="0.25" />
+        <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/status_bottom_sheet.xml" value="0.12545289855072464" />
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/status_image_video.xml" value="0.2" />
+        <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/layout/status_items.xml" value="0.18" />
         <entry key="..\:/Personal_Android_Projects/WhatsappClone/app/src/main/res/menu/main_menu.xml" value="0.2" />
       </map>
     </option>

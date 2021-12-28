@@ -43,8 +43,8 @@ class TextStatusActivity : BaseActivity() {
 
         view.addUpload.setOnClickListener {
             val text = view.statusText.text.toString().trim()
-            statusLocation.set(StatusOwner(getCurrentUserId(), getConversationContacts()), SetOptions.merge()).addOnCompleteListener {
-                statusLocation.collection(Constants.UPLOADS).document().set(Status(listOf(Uploads(text, views = listOf(currentUserId), type = "text")),
+            statusLocation  .set(StatusOwner(getCurrentUserId(), getConversationContacts()), SetOptions.merge()).addOnCompleteListener {
+                statusLocation.collection(Constants.UPLOADS).document().set(Status(listOf(Uploads(text, views = listOf(currentUserId), isVideo = false)),
                     uploaderId = currentUserId,
                     uploaderName = getCurrentUser()?.email!!),
                     SetOptions.merge()).addOnCompleteListener {
@@ -53,7 +53,6 @@ class TextStatusActivity : BaseActivity() {
                     Toast.makeText(this, "Please try again!", Toast.LENGTH_SHORT).show()
                     onBackPressed()
                 }
-
             }
         }
     }

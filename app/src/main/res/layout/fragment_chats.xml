@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".fragment.ChatsFragment"
     android:fillViewport="true">
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView
@@ -19,12 +19,14 @@
             android:id="@+id/message_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:src="@drawable/ic_message"
-            app:tint="@color/white"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:contentDescription="@string/message" />
+            android:layout_alignParentBottom="true"
+            android:layout_margin="30dp"
+            android:contentDescription="@string/message"
+            android:src="@drawable/ic_message"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/white" />
 
         <TextView
             android:id="@+id/chatContacts"
@@ -32,6 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textColor="@color/white"
-            android:textSize="20sp" />
-    </RelativeLayout>
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/messages_rv" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

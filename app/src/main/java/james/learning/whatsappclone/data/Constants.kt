@@ -15,6 +15,7 @@ object Constants {
     const val UPLOADS = "Uploads"
     const val UPLOAD_URI = "uploadUri"
     const val COMMENT = "comment"
+    const val UPLOAD_TIME = "uploadTime"
     const val IS_VIDEO = "isVideo"
     const val MP4 = "mp4"
     const val PNG = "png"
